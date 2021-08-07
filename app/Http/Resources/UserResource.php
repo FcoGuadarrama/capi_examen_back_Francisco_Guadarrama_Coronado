@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Carbon;
 
 class UserResource extends JsonResource
 {
@@ -22,6 +23,7 @@ class UserResource extends JsonResource
             'fecha_nacimiento' => $this->fecha_nacimiento,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'edad' => Carbon::parse($this->fecha_nacimiento)->age,
             'domicilios' => UserDomiciliosResource::collection($this->domicilios),
         ];
     }
