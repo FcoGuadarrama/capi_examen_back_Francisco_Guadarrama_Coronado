@@ -10,7 +10,9 @@ class UserController extends Controller
     public function index()
     {
 
-           return UserResource::collection(User::all());
+           return \response(
+               UserResource::collection(User::all())
+           );
 
     }
 }
